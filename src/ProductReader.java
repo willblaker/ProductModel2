@@ -13,6 +13,8 @@ import static java.lang.System.out;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+
 import static java.nio.file.StandardOpenOption.CREATE;
 import javax.swing.JFileChooser;
 
@@ -22,6 +24,7 @@ public class ProductReader {
         JFileChooser chooser = new JFileChooser();
         File selectedFile;
         String rec = "";
+        ArrayList<Product> pList = new ArrayList<Product>();
 
         try
         {
@@ -63,6 +66,8 @@ public class ProductReader {
                     // echo to screen
                     String[] rec2 = rec.split(",");
                     //String output = rec2[0] + "\t" + rec2[1] + "\t" + rec2[2] + "\t" + rec2[3] + "\t"+ rec2[4];
+                    Product p = new Product(rec2[0], rec2[1], rec2[2], Double.parseDouble(rec2[3]));
+                    pList.add(p);
                     System.out.printf("%1s%16s%26s%16s", rec2[0], rec2[1],rec2[2],rec2[3]);
                     System.out.println();
 

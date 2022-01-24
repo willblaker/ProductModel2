@@ -17,6 +17,7 @@ public class ProductWriter {
     {
         // Test data the lines of the file we will write
         ArrayList <String>recs = new ArrayList<>();
+        ArrayList<Product> pList = new ArrayList<Product>();
 
         Scanner in = new Scanner(System.in);
         boolean done = false;
@@ -33,6 +34,8 @@ public class ProductWriter {
             //put them into string, with commas separating data
             String input = id + ", " + name + ", " + desc + ", " + cost;
             // add to the array list
+            Product p = new Product(id, name, desc, cost);
+            pList.add(p);
             recs.add(input);
             done = SafeInput.getYNConfirm(in, "Are you done?");
         }while(!done);
